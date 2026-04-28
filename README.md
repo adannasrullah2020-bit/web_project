@@ -1,4 +1,4 @@
-# Project Name : Tourism Management System 
+# Project Name : JourneyHub Management System 
 Technology Implemented : Apache Server  
 Language Used: PHP  
 Database: My SQL  
