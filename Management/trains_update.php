@@ -7,16 +7,8 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 
-// Database Connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "travel";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// Database connection
+require_once '../config.php';
 
 // Initialize Variables
 $trainNo = ""; $region = ""; $returnTrainNo = ""; $trainName = ""; $origin = ""; $destination = "";

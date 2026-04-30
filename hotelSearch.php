@@ -107,18 +107,8 @@ if(!isset($_SESSION["username"]))
 
 		<?php
 		
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "travel";
-			
-			// Creating a connection to MySQL database
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			
-			// Checking if we've successfully connected to the database
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// Database connection
+			require_once 'config.php';
 		
 			$sql = "SELECT * FROM hotels WHERE city='$city'";
 			$rowcount = mysqli_num_rows(mysqli_query($conn,$sql));

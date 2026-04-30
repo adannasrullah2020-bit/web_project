@@ -5,8 +5,8 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 
-$conn = mysqli_connect("localhost", "root", "", "travel");
-if (!$conn) { die("Connection failed: " . mysqli_connect_error()); }
+// --- DATABASE CONNECTION ---
+require_once '../config.php';
 
 $update_success = '';
 $update_error   = '';
@@ -407,14 +407,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         .divider-label::before, .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
         /* OVERLAY */
-        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(14,17,23,0.4); z-index: 199; backdrop-filter: blur(2px); }
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(14,17,23,0.4); z-index: 199; backdrop-filter: blur(2px); pointer-events: none; }
 
         /* RESPONSIVE */
         @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
         @media (max-width: 768px) {
             .sidebar { transform: translateX(-100%); }
             .sidebar.open { transform: translateX(0); }
-            .sidebar-overlay { display: block; }
+            .sidebar.open ~ .sidebar-overlay { display: block; pointer-events: auto; }
             .topbar { left: 0; }
             .main { margin-left: 0; padding: 20px 16px; }
             .hamburger { display: flex; }
@@ -648,8 +648,20 @@ $initials  = strtoupper(substr($full_name, 0, 1));
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-    function closeSidebar()  { document.getElementById('sidebar').classList.remove('open'); }
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        sidebar.classList.toggle('open');
+        overlay.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
+        overlay.style.pointerEvents = sidebar.classList.contains('open') ? 'auto' : 'none';
+    }
+    function closeSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        sidebar.classList.remove('open');
+        overlay.style.display = 'none';
+        overlay.style.pointerEvents = 'none';
+    }
     function setPage(page)   { window.location.href = '?page=' + page; }
 
     // Chart.js implementation

@@ -7,16 +7,8 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 
-// Database Connection
-$servername = "localhost";
-$db_user = "root"; // Database User
-$db_pass = "";
-$dbname = "travel";
-
-$conn = mysqli_connect($servername, $db_user, $db_pass, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// Database connection
+require_once '../config.php';
 
 // Initialize Variables for Form
 $bookingID = ""; $hotelName = ""; $date = ""; $booking_username = ""; $cancelled = "";

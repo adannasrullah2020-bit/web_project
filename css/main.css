@@ -1,6 +1,42 @@
 @charset "UTF-8";
 
 @import url("../fonts/font-awesome-4.7.0/css/font-awesome.min.css");
+
+/* ================================================================ */
+/* MOBILE-FIRST RESPONSIVE DESIGN BASE                             */
+/* ================================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 .flights {
   font-family: "raleway", sans-serif;
   text-overflow: ellipsis;
@@ -4479,6 +4515,625 @@
   .btn-book {
     padding: 0.6em 1.5em;
     font-size: 0.85em;
+  }
+}
+
+/* ================================================================ */
+/* COMPREHENSIVE MOBILE RESPONSIVE CSS - ALL SECTIONS              */
+/* ================================================================ */
+
+/* FLIGHTS SECTION - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .flights {
+    min-height: 35em !important;
+    margin-bottom: 2em;
+  }
+
+  .flights .search {
+    margin: 0.5em 1em 1em 1em;
+    border-radius: 0;
+  }
+
+  .flights .content {
+    top: -1em;
+    padding: 1.5em 1em;
+    font-size: 1em;
+    min-height: auto;
+  }
+
+  .flights .radioContainer {
+    margin-bottom: 1.5em;
+    flex-wrap: wrap;
+  }
+
+  .flights .radioContainer .col-sm-6 {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .flights label {
+    font-size: 0.95em;
+    margin-right: 1em;
+  }
+
+  .flights input[type='radio'] {
+    transform: scale(1);
+    margin-right: 0.5em;
+  }
+
+  .flights .button {
+    padding: 8px 20px;
+    font-size: 0.95em;
+    display: block;
+    width: 100%;
+    margin: 0.5em 0;
+    text-align: center;
+  }
+
+  .flights .col-sm-6,
+  .flights .col-sm-4,
+  .flights .col-sm-12 {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flights {
+    min-height: 30em !important;
+  }
+
+  .flights .content {
+    padding: 1em;
+    font-size: 0.9em;
+  }
+
+  .flights .radioContainer {
+    margin-bottom: 1em;
+  }
+
+  .flights label {
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  .flights .button {
+    padding: 6px 15px;
+    font-size: 0.85em;
+  }
+
+  .selectpicker {
+    font-size: 0.85em !important;
+  }
+
+  .form-group label {
+    font-size: 0.9em;
+    margin-bottom: 0.25em;
+  }
+}
+
+/* HOTELS SECTION - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .hotels {
+    min-height: 35em !important;
+  }
+
+  .hotels .search {
+    margin: 0.5em 1em 1em 1em;
+  }
+
+  .hotels .content {
+    padding: 1.5em 1em;
+    font-size: 1em;
+    min-height: auto;
+  }
+
+  .hotels .form-group {
+    margin-bottom: 1em;
+  }
+
+  .hotels .col-sm-6,
+  .hotels .col-sm-12 {
+    padding: 5px;
+    width: 100%;
+  }
+
+  .hotels .button {
+    padding: 8px 20px;
+    width: 100%;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotels {
+    min-height: 30em !important;
+  }
+
+  .hotels .content {
+    padding: 1em;
+    font-size: 0.9em;
+  }
+
+  .hotels .button {
+    padding: 6px 15px;
+    font-size: 0.85em;
+  }
+}
+
+/* TRAINS SECTION - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .trains {
+    min-height: 35em !important;
+  }
+
+  .trains .search {
+    margin: 0.5em 1em 1em 1em;
+  }
+
+  .trains .content {
+    padding: 1.5em 1em;
+  }
+
+  .trains .col-sm-6,
+  .trains .col-sm-12 {
+    padding: 5px;
+    width: 100%;
+  }
+
+  .trains .button {
+    width: 100%;
+    padding: 8px 20px;
+  }
+}
+
+/* POPULAR FLIGHTS/HOTELS - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .popularFlights {
+    max-height: none;
+    min-height: auto;
+    margin-bottom: 2em;
+  }
+
+  .popularFlights .col-sm-2 {
+    width: 50%;
+    border-right: none;
+    border-bottom: 1px solid #251974;
+    min-height: auto !important;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  .popularFlights .listItem {
+    margin: 1em 0;
+    padding: 1em;
+  }
+
+  .popularFlights .heading {
+    font-size: 1.8em;
+    margin: 1.5em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .popularFlights {
+    margin-bottom: 1em;
+  }
+
+  .popularFlights .col-sm-2 {
+    width: 100%;
+  }
+
+  .popularFlights .heading {
+    font-size: 1.4em;
+    margin: 1em 0;
+  }
+
+  .popularFlights .listItem {
+    margin: 0.5em 0;
+    padding: 0.75em;
+  }
+}
+
+/* LOGIN/SIGNUP FORMS - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .login,
+  .signup,
+  .login form,
+  .signup form {
+    padding: 1.5em !important;
+  }
+
+  .login .input,
+  .signup .input,
+  .login .button,
+  .signup .button {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.75em 0 !important;
+    font-size: 1em;
+  }
+
+  .login label,
+  .signup label {
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .login,
+  .signup {
+    padding: 1em !important;
+    max-width: 100% !important;
+  }
+
+  .login .input,
+  .signup .input {
+    padding: 8px !important;
+    font-size: 0.9em;
+  }
+
+  .login .button,
+  .signup .button {
+    padding: 8px !important;
+    font-size: 0.9em;
+  }
+}
+
+/* PAYMENTS/CHECKOUT - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .paymentWrapper,
+  .payment {
+    padding: 1.5em !important;
+  }
+
+  .paymentWrapper .input,
+  .payment .input {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.75em 0;
+    font-size: 1em;
+  }
+
+  .paymentWrapper label,
+  .payment label {
+    display: block;
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
+  }
+
+  .paymentWrapper .button,
+  .payment .button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1em;
+  }
+}
+
+/* PASSENGERS SECTION - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .passengersWrapper {
+    padding: 1.5em !important;
+  }
+
+  .passengersWrapper .inputPassengerName,
+  .passengersWrapper .inputSmall {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.75em 0;
+  }
+
+  .passengersWrapper label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 0.95em;
+  }
+
+  .passengersWrapper .col-sm-6 {
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+/* USER DASHBOARD - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .userDashboard {
+    padding: 1em !important;
+  }
+
+  .userDashboard .button {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.5em 0;
+  }
+
+  .userDashboard .col-sm-3,
+  .userDashboard .col-sm-6,
+  .userDashboard .col-sm-9 {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1em;
+  }
+
+  .userDashboard table {
+    font-size: 0.85em;
+  }
+
+  .userDashboard .tickets .input,
+  .userDashboard .tickets .tableElementTags {
+    width: 100%;
+    padding: 8px;
+    margin: 0.5em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .userDashboard table {
+    font-size: 0.75em;
+  }
+
+  .userDashboard .tableElementTags {
+    padding: 4px 6px !important;
+  }
+}
+
+/* TABLES & DATA DISPLAY - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9em;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 1.5em;
+    border: 1px solid #ddd;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* MODALS & MESSAGES - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .messages {
+    padding: 1em !important;
+  }
+
+  .messages .button {
+    width: 100%;
+    padding: 10px;
+    margin: 0.5em 0;
+  }
+
+  .blocked {
+    padding: 1em !important;
+  }
+
+  .blocked .button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .modal-dialog {
+    width: 95% !important;
+    margin: 0.5em auto !important;
+  }
+
+  .modal-content {
+    border-radius: 4px;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 1em !important;
+  }
+}
+
+/* CONTACT FORM - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .contactPadding .contactUsForm {
+    padding: 1.5em !important;
+  }
+
+  .contactPadding .contactUsForm .input,
+  .contactPadding .contactUsForm .inputSmall {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.75em 0;
+    font-size: 1em;
+  }
+
+  .contactPadding .contactUsForm label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 0.95em;
+  }
+
+  .contactPadding .contactUsForm .button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1em;
+  }
+}
+
+/* ABOUT US PAGE - MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .aboutUsWrapper {
+    padding: 1.5em !important;
+  }
+
+  .aboutUsWrapper .input,
+  .aboutUsWrapper .inputSmall {
+    width: 100%;
+    padding: 10px !important;
+    margin: 0.75em 0;
+  }
+
+  .aboutUsWrapper p,
+  .aboutUsWrapper h1,
+  .aboutUsWrapper h2,
+  .aboutUsWrapper h3 {
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+}
+
+/* GENERAL RESPONSIVE UTILITIES */
+@media (max-width: 768px) {
+  .text-center {
+    text-align: center !important;
+  }
+
+  .text-left {
+    text-align: left !important;
+  }
+
+  .text-right {
+    text-align: center !important;
+  }
+
+  body h1 {
+    font-size: 1.8em;
+    margin: 1em 0 0.5em 0;
+  }
+
+  body h2 {
+    font-size: 1.5em;
+    margin: 0.8em 0 0.4em 0;
+  }
+
+  body h3 {
+    font-size: 1.2em;
+    margin: 0.6em 0 0.3em 0;
+  }
+
+  body h4, body h5, body h6 {
+    font-size: 1em;
+    margin: 0.5em 0 0.25em 0;
+  }
+
+  body p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+
+  body a {
+    word-break: break-word;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  .container-fluid {
+    padding: 0 !important;
+  }
+
+  .row {
+    margin: 0 -5px;
+  }
+
+  .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4,
+  .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8,
+  .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12,
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4,
+  .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8,
+  .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    width: 100%;
+    float: none;
+    padding: 5px;
+    margin-bottom: 1em;
+  }
+
+  .hidden-xs {
+    display: none !important;
+  }
+
+  .visible-xs {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body h1 {
+    font-size: 1.5em;
+  }
+
+  body h2 {
+    font-size: 1.3em;
+  }
+
+  body h3 {
+    font-size: 1.1em;
+  }
+
+  body p {
+    font-size: 0.9em;
+  }
+
+  .container,
+  .container-fluid {
+    padding: 0 !important;
+  }
+
+  .row {
+    margin: 0 !important;
+  }
+
+  .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4,
+  .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8,
+  .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    padding: 0 !important;
+  }
+}
+
+/* IMAGE OPTIMIZATION FOR MOBILE */
+@media (max-width: 768px) {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .img-responsive {
+    max-width: 100%;
+    height: auto;
+  }
+
+  background-image:url() {
+    background-size: cover !important;
+    background-attachment: scroll !important;
   }
 }
 

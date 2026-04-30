@@ -7,19 +7,11 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "travel";
+// Database connection
+require_once '../config.php';
 
 $message = '';
 $messageType = '';
-
-// Create a single database connection for the whole page
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 // Handle Delete
 if(isset($_POST['delete'])){

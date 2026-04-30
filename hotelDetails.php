@@ -21,6 +21,7 @@ if(!isset($_SESSION["username"]))
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/mobile-responsive.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
@@ -49,18 +50,8 @@ if(!isset($_SESSION["username"]))
 		
 		<?php
 		
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "travel";
-			
-			// Creating a connection to MySQL database
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			
-			// Checking if we've successfully connected to the database
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// Database connection
+			require_once 'config.php';
 		
 			$sql = "SELECT * FROM hotels WHERE hotelID='$hotelID'";
 			$result = $conn->query($sql);

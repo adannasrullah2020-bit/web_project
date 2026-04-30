@@ -4,6 +4,7 @@ if(!isset($_SESSION["username"]))
     	header("Location:blocked.php");
    		$_SESSION['url'] = $_SERVER['REQUEST_URI']; 
 }
+require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -71,13 +72,7 @@ if(!isset($_SESSION["username"]))
 
 		<?php
 		
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "travel";
-			
-			// Creating a connection to MySQL database
-			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Database connection already established via config.php
 			
 			// Checking if we've successfully connected to the database
 			if ($conn->connect_error) {

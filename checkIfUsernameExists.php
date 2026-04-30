@@ -1,17 +1,12 @@
 
 <?php
-	
-	//database connection
-	$servername = "localhost";
-	$usernameConn = "root";
-	$password = "";
-	$dbname = "travel";
 
-	$username = $_POST["username"];
+// Database connection
+require_once 'config.php';
+
+$username = $_POST["username"];
 	
 	try {
-		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $usernameConn, $password);
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$stmt = $conn->prepare("SELECT Username FROM users WHERE Username=?");
     	$stmt->execute([$username]);

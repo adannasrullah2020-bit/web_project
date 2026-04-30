@@ -3,11 +3,7 @@ session_start();
 $error_message = '';
 
 // Database connection
-$conn = mysqli_connect("localhost", "root", "", "travel");
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require_once '../config.php';
 
 if(isset($_POST['but_submit'])){
     // We don't need mysqli_real_escape_string if we use Prepared Statements

@@ -16,6 +16,7 @@
     	<link href="css/bootstrap.min.css" rel="stylesheet">
     	<link href="css/bootstrap-select.css" rel="stylesheet">
 		<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+		<link href="css/mobile-responsive.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     

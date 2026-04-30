@@ -53,18 +53,8 @@
 		
 		$hash = $hasher->HashPassword($password);
 			
-		$servername = "localhost";
-		$usernameConn = "root";
-		$passwordConn = "";
-		$dbname = "travel";
-		
-		// Creating a connection to travel MySQL database
-		$conn = new mysqli($servername, $usernameConn, $passwordConn, $dbname);
-		
-		// Checking if we've successfully connected to the database
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// Database connection
+		require_once 'config.php';
 		
 		$checkUserExistSQL = "SELECT * FROM `users` WHERE Username='$username'";
 		$checkUserExistQuery = $conn->query($checkUserExistSQL);

@@ -24,6 +24,7 @@ if(!isset($_SESSION["username"]))
     	<link href="css/bootstrap.min.css" rel="stylesheet">
     	<link href="css/bootstrap-select.css" rel="stylesheet">
 		<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+		<link href="css/mobile-responsive.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     

@@ -11,15 +11,8 @@ if(!isset($_SESSION["username"]))
 }
 
 // --- DATABASE CONNECTION ---
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "travel";
+require_once 'config.php';
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 // --- INITIALIZE VARIABLES ---
 $city = "";
@@ -66,6 +59,7 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) {
     	<link href="css/bootstrap.min.css" rel="stylesheet">
     	<link href="css/bootstrap-select.css" rel="stylesheet">
 		<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+		<link href="css/mobile-responsive.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     

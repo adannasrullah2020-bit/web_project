@@ -46,18 +46,8 @@ session_start();
 		$username=$_POST["username"];
 		$password=$_POST["password"];
 		
-		$servername = "localhost";
-		$usernameConn = "root";
-		$passwordConn = "";
-		$dbname = "travel";
-		
-		// Creating a connection to MySQL database
-		$conn = new mysqli($servername, $usernameConn, $passwordConn, $dbname);
-		
-		// Checking if we've successfully connected to the database
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// Database connection
+		require_once 'config.php';
 	
 		//checking user details query
 		$getUserDataSQL = "SELECT * FROM `users` WHERE Username='$username'";

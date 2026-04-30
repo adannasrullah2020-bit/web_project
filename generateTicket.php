@@ -5,6 +5,7 @@ if(!isset($_SESSION["username"]))
     	header("Location:blocked.php");
    		$_SESSION['url'] = $_SERVER['REQUEST_URI']; 
 }
+require_once 'config.php';
 
 if(isset($_POST['token']) && $_POST['token'] == $_SESSION['token']){
 
@@ -95,18 +96,7 @@ ob_start();
 		
 		<?php
 		
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "travel";
-			
-			// Creating a connection to MySQL database
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			
-			// Checking if we've successfully connected to the database
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// Database connection already established via config.php
 
 			if($mode=="ReturnTripFlight"){
 						
