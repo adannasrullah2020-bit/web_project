@@ -1,159 +1,68 @@
 <?php
-		
 ob_start();
 session_start();
 
+require_once 'config.php';
+require("php/PasswordHash.php");
+
+$hasher = new PasswordHash(8, false);
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    die("Invalid request method");
+}
+
+$username = trim($_POST["username"] ?? "");
+$password = $_POST["password"] ?? "";
+
+/* Server side validation */
+$errors = [];
+
+if (empty($username)) {
+    $errors[] = "Username is required";
+} elseif (!preg_match("/^[A-Za-z0-9_]{3,20}$/", $username)) {
+    $errors[] = "Invalid username format";
+}
+
+if (empty($password)) {
+    $errors[] = "Password is required";
+} elseif (strlen($password) < 6 || strlen($password) > 50) {
+    $errors[] = "Password length must be between 6 and 50 characters";
+}
+
+if (!empty($errors)) {
+    echo "Validation failed:<br>";
+    foreach ($errors as $e) {
+        echo $e . "<br>";
+    }
+    exit();
+}
+
+/* Database check */
+$stmt = $conn->prepare("SELECT * FROM users WHERE Username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if (!$user) {
+    echo "Invalid username or password";
+    exit();
+}
+
+$passwordFromDB = $user["Password"];
+
+if ($hasher->CheckPassword($password, $passwordFromDB)) {
+    $_SESSION["valid"] = true;
+    $_SESSION["timeout"] = time();
+    $_SESSION["username"] = $username;
+    header("Location: userDashboardProfile.php");
+    exit();
+} else {
+    echo "Invalid username or password";
+    exit();
+}
 ?>
-
-<!DOCTYPE html>
-
-<html lang="en">
-	
-	<!-- HEAD TAG STARTS -->
-
-	<head>
-	
-  		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Login | tourism_management</title> 
-    
-    	<link href="css/main.css" rel="stylesheet">
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
-    	<link href="css/bootstrap-select.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
-    	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
-    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-    	<script src="js/jquery-3.2.1.min.js"></script>
-    	<script src="js/main.js"></script>
-    	<script src="js/bootstrap.min.js"></script>
-    	<script src="js/bootstrap-select.js"></script>
-    	<script src="js/bootstrap-dropdown.js"></script>
-    	<script src="js/jquery-2.1.1.min.js"></script>
-    	<script src="js/moment-with-locales.js"></script>
-    	<script src="js/bootstrap-datetimepicker.js"></script>
-    		
-	</head>
-	
-	<body>
-	
-
-	<?php
-		
-		require("php/PasswordHash.php");
-		$hasher = new PasswordHash(8, false);
-		
-		$username=$_POST["username"];
-		$password=$_POST["password"];
-		
-		// Database connection
-		require_once 'config.php';
-	
-		//checking user details query
-		$getUserDataSQL = "SELECT * FROM `users` WHERE Username='$username'";
-		$getUserDataQuery = $conn->query($getUserDataSQL);
-		$getResult = $getUserDataQuery->fetch_assoc();
-		
-		$passwordFromDB = $getResult["Password"];
-		
-		$check = $hasher->CheckPassword($password, $passwordFromDB);
-		
-		if($check) { ?>
-		
-		<?php 
-		
-		$_SESSION["valid"] = true;
-    	$_SESSION["timeout"] = time();
-    	$_SESSION["username"] = $username;
-		
-		?>
-		
-		<title>Logged In |  tourism_management</title>
-		
-			<div class="container-fluid">
-		
-				<div class="col-sm-12 messages">
-						
-					<div class="col-sm-12 text-center">
-							
-						<div class="col-sm-12 heading">
-							Log In Successfull
-						</div>
-								
-					</div>
-					
-					<div class="col-sm-3"></div> <!-- empty class -->
-					
-						<div class="col-sm-6 containerBox">
-						
-							<div class="col-sm-12 text">
-								
-								You've logged in successfully.
-								<br />
-								You can now access your dashboard. 
-								
-							</div>
-							
-							<div class="col-sm-12 text-center">
-								<a href="userDashboardProfile.php">
-									<input type="button" class="button" name="login" value="Take me to my Dashboard">
-								</a>
-								
-							</div>
-							
-						</div>
-					
-					<div class="col-sm-3"></div> <!-- empty class -->
-						
-				</div>
-		
-			</div> <!-- container-fluid -->
-			
-	<?php }
-	
-		else { ?>
-		
-			<title>Couldn't log in | tourism_management</title>
-		
-			<div class="container-fluid">
-			
-				<div class="messages">
-						
-					<div class="col-sm-12">
-							
-						<div class="heading text-center">
-							Log In Unsuccessful
-						</div>
-								
-					</div>
-					
-					<div class="col-sm-6 col-sm-offset-3">
-						
-						<div class="col-sm-12 containerBox">
-						
-							<div class="col-sm-12 text">
-								
-								Error logging in.
-								<br />
-								Please try again with correct username and password. 
-								
-							</div>
-							
-							<div class="col-sm-12 text-center">
-								<a href="login.php">
-									<input type="button" class="button" name="tryAgain" value="Try Again">
-								</a>
-							</div>
-							
-						</div>
-							
-					</div>
-						
-				</div>
-				
-			</div> <!-- container-fluid -->
-			
-		<?php } ?>
 	
 	</body>
 	

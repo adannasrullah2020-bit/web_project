@@ -54,25 +54,15 @@
 				
 				<div class="containerBox">
 				
-			<form action="loginAction.php" method="POST">
-    
-    <label for="username">Username:</label>
-    <input type="text" class="input" name="username" placeholder="Enter username here" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" class="input" name="password" placeholder="Enter password here" required>
-    
-    <div class="col-sm-12 text-center">
-        <input type="submit" class="button" name="login" value="Login">
-        
-        
-    </div>
-    
-    <a href="signup.php">
-        <p class="col-xs-12 dots" style="color: white; font-size: 1.1em; margin-top: 1em; text-align: center;">Don't have an account? SignUp</p>
-    </a>
+		<form action="loginAction.php" method="POST">
 
-</form>
+<label for="username">Username:</label>
+<input type="text" class="input" name="username" placeholder="Enter username here" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" title="Username only letters, numbers and underscore allowed">
+
+<label for="password">Password:</label>
+<input type="password" class="input" name="password" placeholder="Enter password here" required minlength="6" maxlength="50" title="Password must be at least 6 characters">
+
+<div class="col-sm-12 text-center"> <input type="submit" class="button" name="login" value="Login"> </div> <a href="signup.php"> <p class="col-xs-12 dots" style="color: white; font-size: 1.1em; margin-top: 1em; text-align: center;"> Don't have an account? SignUp </p> </a> </form>
 				
 					
 				
