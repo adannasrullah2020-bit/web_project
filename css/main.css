@@ -1205,7 +1205,6 @@
 }
 .footerMod .copyright {
   display: inline-block;
-  border-top: 2px solid #add8e6;
   font-size: 0.95em;
   padding: 1em 0 0 0;
   margin: 2em 0 0 0;
@@ -1219,7 +1218,57 @@
   text-decoration: none !important;
   color: white !important;
 }
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  
+  /* Footer container ki padding thodi kam kar di taaki space bache */
+  .footer, .footerMod {
+    padding: 2em 1em;
+  }
 
+  /* Heading ka size chota kiya taaki single line mein aa sake */
+  .footer .footerHeading, 
+  .footerMod .footerHeading {
+    font-size: 1.3em; 
+    margin-bottom: 0.8em;
+  }
+
+  /* Text size ko mobile ke mutabiq adjust kiya */
+  .footer .footerText, 
+  .footerMod .footerText {
+    font-size: 0.95em;
+    padding: 0 10px; /* Side se thodi jagah chodi */
+    line-height: 1.4em;
+  }
+
+  /* Social links ko mobile par tap karne mein asani ho isliye margin badhaya */
+  .footer .socialLinks .fb, 
+  .footer .socialLinks .gp, 
+  .footer .socialLinks .tw, 
+  .footer .socialLinks .in,
+  .footerMod .socialLinks div[class] {
+    font-size: 1.1em;
+    margin-bottom: 1em; /* Mobile par buttons ke beech gap zaruri hai */
+    display: block;    /* Ek ke niche ek dikhane ke liye */
+  }
+
+  /* FontAwesome icon ka size mobile par adjust kiya */
+  .footer .fa {
+    font-size: 2em;
+    margin-top: -0.5em;
+  }
+  
+  .footerMod .fa {
+    font-size: 1.8em;
+  }
+
+  /* Copyright section ko mobile par wide rakha */
+  .footer .copyright, 
+  .footerMod .copyright {
+    width: 95%;
+    font-size: 0.85em;
+  }
+}
 .login .input, .login .button, .signup .input, .signup .button, .passengersWrapper .inputPassengerName, .passengersWrapper .inputSmall, .paymentWrapper .input, .paymentWrapper .inputSmall, .messages .button, .blocked .button, .userDashboard .button, .userDashboard .tickets .input, .userDashboard .tickets .tableElementTags, .forgotPassword .input, .forgotPassword .button, .aboutUsWrapper .input, .aboutUsWrapper .inputSmall, .contactPadding .contactUsForm .input, .contactPadding .contactUsForm .inputSmall {
   -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
